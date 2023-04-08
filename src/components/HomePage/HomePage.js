@@ -1,13 +1,15 @@
+import EmployeeList from "../EmployeeList/EmployeeList";
 import Header from "../Header/Header";
 import Search from "../Search/Search";
-import { Fragment } from "react";
+import "./HomePage.css";
 
-function HomePage() {
+function HomePage(props) {
   return (
-    <Fragment>
-      <Header />
+    <div className='home-page'>
+      <Header headerTitle='Employee Directory' />
       <Search />
-    </Fragment>
+      <EmployeeList employeeData={props.employeeData} />
+    </div>
   );
 }
 

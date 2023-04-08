@@ -1,5 +1,5 @@
-function Header() {
-  return <h1>Employee Directory</h1>;
+function Header(props) {
+  return <h5>{props.headerTitle}</h5>;
 }
 
 export default Header;

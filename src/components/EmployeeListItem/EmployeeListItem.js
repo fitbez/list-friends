@@ -1,15 +1,22 @@
-function EmployeeListItem() {
+import "./EmployeeListItem.css";
+
+function EmployeeListItem({ employeeData }) {
   return (
-    <div>
-      <img src='' alt='some here' />
-      <h4>Title</h4>
-      <p>Description</p>
-    </div>
-    // <ul>
-    //     <li><img src="" alt="some here" /></li>
-    //     <li><h4>Title</h4></li>
-    //     <li><p>Some description</p></li>
-    // </ul>
+    <>
+      {employeeData.map(({ image, name, title }) => {
+        return (
+          <>
+            <div className='employee-list-item'>
+              <img src={image} alt='some here' />
+              <div className='employee-content'>
+                <h4 className='employee-name'>{name}</h4>
+                <p className='employee-title'>{title}</p>
+              </div>
+            </div>
+          </>
+        );
+      })}
+    </>
   );
 }
 
