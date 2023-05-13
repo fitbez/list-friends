@@ -1,0 +1,29 @@
+.add-employee-form{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem auto;
+    width: 30%;
+    gap: 10px;
+}
+
+input {
+padding: 10px 5px;
+border-radius: 4px;
+outline: none;
+border: 1px solid #333;
+}
+
+button{
+    padding: 10px 5px;
+    background-color: transparent;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #333;
+    font-size: 20px;
+    cursor: pointer
+}
+
+button:hover{
+    background-color: #1976D2;
+    color:#fff;
+}

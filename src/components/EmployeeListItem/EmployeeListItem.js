@@ -1,19 +1,20 @@
 import "./EmployeeListItem.css";
+import { useContext } from "react";
+import { EmployeeContext } from "../../EmployeeAppContext";
 
-function EmployeeListItem({ employeeData }) {
+function EmployeeListItem() {
+  const { employeeInfo } = useContext(EmployeeContext);
   return (
     <>
-      {employeeData.map(({ image, name, title }) => {
+      {employeeInfo.map(({ image, name, occupation }, index) => {
         return (
-          <>
-            <div className='employee-list-item'>
-              <img src={image} alt='some here' />
-              <div className='employee-content'>
-                <h4 className='employee-name'>{name}</h4>
-                <p className='employee-title'>{title}</p>
-              </div>
+          <div className='employee-list-item' key={index}>
+            <img src={image} alt='some here' />
+            <div className='employee-content'>
+              <h4 className='employee-name'>{name}</h4>
+              <p className='employee-title'>{occupation}</p>
             </div>
-          </>
+          </div>
         );
       })}
     </>
