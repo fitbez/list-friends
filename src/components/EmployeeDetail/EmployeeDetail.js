@@ -69,7 +69,7 @@ function EmployeeDetail() {
           </>
         ) : (
           <>
-            <StyledTypography variant='h6'>Call Office</StyledTypography>
+            <StyledTypography>Call Office</StyledTypography>
             <p>{employeeDetail.callOffice}</p>
           </>
         )}

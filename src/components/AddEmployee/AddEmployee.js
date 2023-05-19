@@ -1,6 +1,26 @@
 import { useState, useContext } from "react";
 import "./AddEmployee.css";
 import { EmployeeContext } from "../../EmployeeAppContext";
+import styled from "styled-components";
+import { Button } from "@mui/material";
+
+const StyledAddEmployeeWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: center;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
 
 const AddEmployee = () => {
   const { setEmployeeInfo, employeeInfo } = useContext(EmployeeContext);
@@ -45,10 +65,10 @@ const AddEmployee = () => {
   console.log("succes", showSuccessAlert);
 
   return (
-    <>
+    <StyledAddEmployeeWrapper>
       <h1>Add Employee</h1>
       {showSuccessAlert && <SuccessAlert />}
-      <form className='add-employee-form' onSubmit={handleSubmit}>
+      <StyledForm onSubmit={handleSubmit}>
         <input
           type='text'
           placeholder='full name'
@@ -98,9 +118,9 @@ const AddEmployee = () => {
           name='callOffice'
           onChange={handleChange}
         />
-        <button>Submit</button>
-      </form>
-    </>
+        <Button variant='contained'>Submit</Button>
+      </StyledForm>
+    </StyledAddEmployeeWrapper>
   );
 };
 

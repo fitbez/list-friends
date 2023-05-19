@@ -4,8 +4,9 @@ import AddEmployeePage from "./pages/AddEmployeePage";
 import { Routes, Route } from "react-router-dom";
 import EmployeeListPage from "./pages/EmployeeListPage";
 import { EmployeeProvider } from "./EmployeeAppContext";
+import LoginPage from "./pages/LoginPage";
 
-import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
+import { ThemeProvider, createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -34,6 +35,7 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/add-employee' element={<AddEmployeePage />} />
           <Route path='/employee-list' element={<EmployeeListPage />} />
+          <Route path='/login' element={<LoginPage />} />
         </Routes>
       </EmployeeProvider>
     </ThemeProvider>
