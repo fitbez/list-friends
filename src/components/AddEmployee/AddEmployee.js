@@ -3,6 +3,7 @@ import "./AddEmployee.css";
 import { EmployeeContext } from "../../EmployeeAppContext";
 import styled from "styled-components";
 import { Button } from "@mui/material";
+import axios from "axios";
 
 const StyledAddEmployeeWrapper = styled.div`
   display: flex;
@@ -25,14 +26,28 @@ const StyledForm = styled.form`
 const AddEmployee = () => {
   const { setEmployeeInfo, employeeInfo } = useContext(EmployeeContext);
   const [inputValues, setInputValues] = useState({
-    fullName: "",
-    title: "",
+    name: "",
+    occupation: "",
     email: "",
     sms: "",
     callOffice: "",
     callMobile: "",
-    image: "",
+    imageUrl: "",
   });
+
+  const postEmployee = () => {
+    axios
+      .post(
+        "https://calm-everglades-09552-105a0b4519dc.herokuapp.com/api/employee/employee",
+        inputValues
+      )
+      .then(function (response) {
+        console.log("response", response);
+      })
+      .catch(function (error) {
+        console.log("response error", error);
+      });
+  };
 
   const [showSuccessAlert, setShowSuccessAlert] = useState(false);
 
@@ -60,9 +75,11 @@ const AddEmployee = () => {
     event.preventDefault();
     setEmployeeInfo([...employeeInfo, inputValues]);
     setShowSuccessAlert(true);
+    console.log("submited");
+    postEmployee();
   };
 
-  console.log("succes", showSuccessAlert);
+  // console.log("succes", showSuccessAlert);
 
   return (
     <StyledAddEmployeeWrapper>
@@ -73,14 +90,14 @@ const AddEmployee = () => {
           type='text'
           placeholder='full name'
           value={inputValues.fullName}
-          name='fullName'
+          name='name'
           onChange={handleChange}
         />
         <input
           type='text'
           placeholder='title'
           value={inputValues.title}
-          name='title'
+          name='occupation'
           onChange={handleChange}
         />
         <input
@@ -108,7 +125,7 @@ const AddEmployee = () => {
           type='text'
           placeholder='image'
           value={inputValues.image}
-          name='image'
+          name='imageUrl'
           onChange={handleChange}
         />
         <input
@@ -118,7 +135,9 @@ const AddEmployee = () => {
           name='callOffice'
           onChange={handleChange}
         />
-        <Button variant='contained'>Submit</Button>
+        <Button variant='contained' onClick={handleSubmit}>
+          Submit
+        </Button>
       </StyledForm>
     </StyledAddEmployeeWrapper>
   );

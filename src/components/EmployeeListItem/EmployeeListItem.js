@@ -33,11 +33,12 @@ const StyledAccordion = styled(Accordion)`
 function EmployeeListItem() {
   const { employeeInfo, setEmployeeDetail } = useContext(EmployeeContext);
   const isMobile = useMediaQuery({ maxWidth: 768 });
+  console.log("employee data", employeeInfo);
 
   return (
     <>
       {isMobile &&
-        employeeInfo.map(({ image, name, occupation }, index) => {
+        employeeInfo.map(({ imageUrl, name, occupation }, index) => {
           return (
             <StyledAccordion>
               <AccordionSummary
@@ -49,7 +50,7 @@ function EmployeeListItem() {
                   key={index}
                   onClick={() => setEmployeeDetail(employeeInfo[index])}
                 >
-                  <img src={image} alt='some here' />
+                  <img src={imageUrl} alt='some here' />
                   <div className='employee-content'>
                     <h4 className='employee-name'>{name}</h4>
                     <p className='employee-title'>{occupation}</p>
@@ -63,13 +64,13 @@ function EmployeeListItem() {
           );
         })}
       {!isMobile &&
-        employeeInfo.map(({ image, name, occupation }, index) => {
+        employeeInfo.map(({ imageUrl, name, occupation }, index) => {
           return (
             <StyledCardDesktop
               key={index}
               onClick={() => setEmployeeDetail(employeeInfo[index])}
             >
-              <img src={image} alt='some here' />
+              <img src={imageUrl} alt='some here' />
               <div className='employee-content'>
                 <h4 className='employee-name'>{name}</h4>
                 <p className='employee-title'>{occupation}</p>

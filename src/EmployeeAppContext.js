@@ -13,7 +13,7 @@ export const EmployeeProvider = (props) => {
   const [employeeDetail, setEmployeeDetail] = useState({});
 
   const apiUrl =
-    "https://lit-dusk-21328.herokuapp.com/api/employees/allemployees";
+    "https://calm-everglades-09552-105a0b4519dc.herokuapp.com/api/employee/employees";
 
   async function getEmployee() {
     try {

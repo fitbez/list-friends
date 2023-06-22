@@ -48,7 +48,7 @@ function EmployeeDetail() {
             height={80}
           />
         ) : (
-          <StyledImage src={employeeDetail.image} alt='' />
+          <StyledImage src={employeeDetail.imageUrl} alt='' />
         )}
         {isLoading ? (
           <Skeleton animation='wave' width={150} />
