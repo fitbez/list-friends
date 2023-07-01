@@ -24,7 +24,7 @@ const Home = () => {
   const navigate = useNavigate();
   return (
     <StyledHome>
-      <StyledHeading>Welcome Home!</StyledHeading>
+      <StyledHeading>Welcome Home</StyledHeading>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Impedit fugiat
         commodi dolore voluptates placeat delectus odio aliquid quam reiciendis
